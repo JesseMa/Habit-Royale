@@ -17,7 +17,7 @@
    ```
 
 4. **Speicherort:** 
-   `/Users/jessemayerhoff/Documents/Projekte/HabitPet_iOS/HabitRoyaleXcode`
+   `/Users/jessemayerhoff/Documents/Projekte/Habit-Royale_iOS/HabitRoyaleXcode`
 
 ## Schritt 2: Nach Projekt-Erstellung
 
@@ -26,7 +26,7 @@
 - `HabitRoyaleApp.swift` → löschen (wird ersetzt)
 
 ### B) Unsere Dateien kopieren
-Kopiere alle Dateien aus `/HabitPet/HabitPet/` in das neue Xcode Projekt:
+Kopiere alle Dateien aus `/Habit-Royale/Habit-Royale/` in das neue Xcode Projekt:
 
 ```
 HabitRoyaleXcode/

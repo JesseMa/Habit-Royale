@@ -1,4 +1,4 @@
-# HabitPet iOS - Entwicklungs-Leitfaden
+# Habit-Royale iOS - Entwicklungs-Leitfaden
 
 ## 🚀 Schnellstart
 
@@ -6,13 +6,13 @@
 ```bash
 # Repository klonen (falls vorhanden)
 git clone <repository-url>
-cd HabitPet_iOS
+cd Habit-Royale_iOS
 
 # Xcode-Projekt erstellen
 ./setup-xcode-project.sh
 
 # Projekt in Xcode öffnen
-open HabitPet.xcodeproj
+open Habit-Royale.xcodeproj
 ```
 
 ### 2. Firebase-Konfiguration
@@ -22,7 +22,7 @@ open HabitPet.xcodeproj
 2. Neues Projekt erstellen: `habitpet-ios`
 3. iOS-App hinzufügen:
    - Bundle ID: `com.yourcompany.habitpet` (anpassen nach Bedarf)
-   - App-Name: `HabitPet`
+   - App-Name: `Habit-Royale`
 
 #### Firebase-Services aktivieren
 ```bash
@@ -48,7 +48,7 @@ open HabitPet.xcodeproj
 
 #### GoogleService-Info.plist
 1. Datei aus Firebase Console herunterladen
-2. In Xcode zu `/HabitPet/Resources/` hinzufügen
+2. In Xcode zu `/Habit-Royale/Resources/` hinzufügen
 3. Zum Build Target hinzufügen
 
 ### 3. Dependencies installieren
@@ -89,9 +89,9 @@ Firebase ← Firestore ← Service Layer ← ViewModel ← View
 
 ### Ordner-Struktur
 ```
-HabitPet/
+Habit-Royale/
 ├── App/                    # App-Konfiguration
-│   └── HabitPetApp.swift  # Main App Entry Point
+│   └── Habit-RoyaleApp.swift  # Main App Entry Point
 ├── Models/                 # Datenmodelle
 │   ├── User.swift
 │   ├── Pet.swift
@@ -207,7 +207,7 @@ do {
 
 ### Unit Tests
 ```swift
-@testable import HabitPet
+@testable import Habit-Royale
 import XCTest
 
 class PetTests: XCTestCase {
@@ -220,7 +220,7 @@ class PetTests: XCTestCase {
 
 ### UI Tests
 ```swift
-class HabitPetUITests: XCTestCase {
+class Habit-RoyaleUITests: XCTestCase {
     func testPetSelection() {
         let app = XCUIApplication()
         app.launch()
@@ -234,10 +234,10 @@ class HabitPetUITests: XCTestCase {
 ### Test-Ausführung
 ```bash
 # Unit Tests
-xcodebuild test -scheme HabitPet -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -scheme Habit-Royale -destination 'platform=iOS Simulator,name=iPhone 15'
 
 # UI Tests
-xcodebuild test -scheme HabitPetUITests -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -scheme Habit-RoyaleUITests -destination 'platform=iOS Simulator,name=iPhone 15'
 ```
 
 ## 🚀 Deployment
@@ -245,10 +245,10 @@ xcodebuild test -scheme HabitPetUITests -destination 'platform=iOS Simulator,nam
 ### TestFlight
 ```bash
 # Archive erstellen
-xcodebuild archive -scheme HabitPet -archivePath HabitPet.xcarchive
+xcodebuild archive -scheme Habit-Royale -archivePath Habit-Royale.xcarchive
 
 # Export für App Store
-xcodebuild -exportArchive -archivePath HabitPet.xcarchive -exportPath ./build -exportOptionsPlist ExportOptions.plist
+xcodebuild -exportArchive -archivePath Habit-Royale.xcarchive -exportPath ./build -exportOptionsPlist ExportOptions.plist
 ```
 
 ### App Store Connect
@@ -391,7 +391,7 @@ import CoreData
 
 class PersistenceController {
     lazy var container: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "HabitPet")
+        let container = NSPersistentContainer(name: "Habit-Royale")
         container.loadPersistentStores { _, error in
             if let error = error {
                 fatalError("Core Data error: \(error)")
@@ -427,12 +427,12 @@ class HealthManager {
 import WidgetKit
 import SwiftUI
 
-struct HabitPetWidget: Widget {
+struct Habit-RoyaleWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "HabitPetWidget", provider: Provider()) { entry in
-            HabitPetWidgetView(entry: entry)
+        StaticConfiguration(kind: "Habit-RoyaleWidget", provider: Provider()) { entry in
+            Habit-RoyaleWidgetView(entry: entry)
         }
-        .configurationDisplayName("HabitPet")
+        .configurationDisplayName("Habit-Royale")
         .description("Zeigt dein aktives Pet und den aktuellen Streak.")
         .supportedFamilies([.systemSmall, .systemMedium])
     }

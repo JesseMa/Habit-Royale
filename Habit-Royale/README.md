@@ -1,4 +1,4 @@
-# HabitPet iOS App
+# Habit-Royale iOS App
 
 Eine professionelle iOS-App für gamifiziertes Habit-Tracking mit virtuellen Haustieren, entwickelt mit SwiftUI und Firebase.
 
@@ -23,7 +23,7 @@ Eine professionelle iOS-App für gamifiziertes Habit-Tracking mit virtuellen Hau
 
 ### Projekt-Struktur
 ```
-HabitPet/
+Habit-Royale/
 ├── App/                    # App-Konfiguration und Entry Point
 ├── Models/                 # Datenmodelle (User, Pet, Habit, Battle, etc.)
 ├── Views/                  # SwiftUI Views nach Features organisiert
@@ -59,13 +59,13 @@ HabitPet/
 1. **Repository klonen**
    ```bash
    git clone <repository-url>
-   cd HabitPet_iOS
+   cd Habit-Royale_iOS
    ```
 
 2. **Firebase konfigurieren**
    - Firebase-Projekt erstellen
    - iOS-App hinzufügen mit Bundle ID: `com.yourcompany.habitpet`
-   - `GoogleService-Info.plist` herunterladen und in `/HabitPet/Resources/` platzieren
+   - `GoogleService-Info.plist` herunterladen und in `/Habit-Royale/Resources/` platzieren
    - Firebase-Features aktivieren: Authentication, Firestore, Storage, Functions
 
 3. **Dependencies installieren**
@@ -76,7 +76,7 @@ HabitPet/
 
 4. **Xcode-Projekt öffnen**
    ```bash
-   open HabitPet.xcodeproj
+   open Habit-Royale.xcodeproj
    ```
 
 ### Firebase-Setup
@@ -176,10 +176,10 @@ HabitPet/
 ### Testing
 ```bash
 # Unit Tests
-xcodebuild test -scheme HabitPet -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -scheme Habit-Royale -destination 'platform=iOS Simulator,name=iPhone 15'
 
 # UI Tests
-xcodebuild test -scheme HabitPetUITests -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild test -scheme Habit-RoyaleUITests -destination 'platform=iOS Simulator,name=iPhone 15'
 ```
 
 ### Performance-Optimierung
@@ -206,12 +206,12 @@ xcodebuild test -scheme HabitPetUITests -destination 'platform=iOS Simulator,nam
 ### App Store Connect
 1. **Archive erstellen**
    ```bash
-   xcodebuild archive -scheme HabitPet -archivePath HabitPet.xcarchive
+   xcodebuild archive -scheme Habit-Royale -archivePath Habit-Royale.xcarchive
    ```
 
 2. **Upload zu App Store Connect**
    ```bash
-   xcodebuild -exportArchive -archivePath HabitPet.xcarchive -exportPath ./build -exportOptionsPlist ExportOptions.plist
+   xcodebuild -exportArchive -archivePath Habit-Royale.xcarchive -exportPath ./build -exportOptionsPlist ExportOptions.plist
    ```
 
 ### TestFlight
@@ -247,4 +247,4 @@ Für technische Fragen oder Support:
 
 ---
 
-**HabitPet** - Verwandle deine Gewohnheiten in ein Abenteuer! 🐾
+**Habit-Royale** - Verwandle deine Gewohnheiten in ein Abenteuer! 🐾

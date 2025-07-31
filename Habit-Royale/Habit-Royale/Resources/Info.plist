@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>de</string>
 	<key>CFBundleDisplayName</key>
-	<string>HabitPet</string>
+	<string>Habit-Royale</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -59,17 +59,17 @@
 	
 	<!-- Privacy Usage Descriptions -->
 	<key>NSCameraUsageDescription</key>
-	<string>HabitPet möchte auf die Kamera zugreifen, um Fotos für deine Pets aufzunehmen.</string>
+	<string>Habit-Royale möchte auf die Kamera zugreifen, um Fotos für deine Pets aufzunehmen.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>HabitPet möchte auf deine Fotos zugreifen, um Bilder für deine Pets auszuwählen.</string>
+	<string>Habit-Royale möchte auf deine Fotos zugreifen, um Bilder für deine Pets auszuwählen.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>HabitPet möchte auf deine Gesundheitsdaten zugreifen, um deine Fitnessziele automatisch zu verfolgen.</string>
+	<string>Habit-Royale möchte auf deine Gesundheitsdaten zugreifen, um deine Fitnessziele automatisch zu verfolgen.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>HabitPet möchte deine Gesundheitsdaten aktualisieren, um deine Fortschritte zu dokumentieren.</string>
+	<string>Habit-Royale möchte deine Gesundheitsdaten aktualisieren, um deine Fortschritte zu dokumentieren.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>HabitPet verwendet deinen Standort für standortbasierte Erinnerungen.</string>
+	<string>Habit-Royale verwendet deinen Standort für standortbasierte Erinnerungen.</string>
 	<key>NSUserNotificationsUsageDescription</key>
-	<string>HabitPet möchte dir Benachrichtigungen senden, um dich an deine Gewohnheiten zu erinnern.</string>
+	<string>Habit-Royale möchte dir Benachrichtigungen senden, um dich an deine Gewohnheiten zu erinnern.</string>
 	
 	<!-- Background App Refresh -->
 	<key>UIBackgroundModes</key>

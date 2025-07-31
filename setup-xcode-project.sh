@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# HabitPet iOS - Xcode Project Setup Script
-# Automatisierte Projekterstellung für die HabitPet iOS App
+# Habit-Royale iOS - Xcode Project Setup Script
+# Automatisierte Projekterstellung für die Habit-Royale iOS App
 
 set -e
 
-echo "🐾 Setting up HabitPet iOS Project..."
+echo "🐾 Setting up Habit-Royale iOS Project..."
 
 # Variables
-PROJECT_NAME="HabitPet"
+PROJECT_NAME="Habit-Royale"
 BUNDLE_ID="com.yourcompany.habitpet"
-PROJECT_DIR="HabitPet"
+PROJECT_DIR="Habit-Royale"
 TEAM_ID="YOUR_TEAM_ID"
 
 # Create Xcode project directory structure
@@ -30,7 +30,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1234567890ABCDEF1234567 /* HabitPetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234566 /* HabitPetApp.swift */; };
+		A1234567890ABCDEF1234567 /* Habit-RoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234566 /* Habit-RoyaleApp.swift */; };
 		A1234567890ABCDEF1234569 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF1234568 /* ContentView.swift */; };
 		A1234567890ABCDEF123456B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123456A /* Assets.xcassets */; };
 		A1234567890ABCDEF123456E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1234567890ABCDEF123456D /* Preview Assets.xcassets */; };
@@ -38,8 +38,8 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1234567890ABCDEF1234563 /* HabitPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1234567890ABCDEF1234566 /* HabitPetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitPetApp.swift; sourceTree = "<group>"; };
+		A1234567890ABCDEF1234563 /* Habit-Royale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habit-Royale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1234567890ABCDEF1234566 /* Habit-RoyaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit-RoyaleApp.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF1234568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1234567890ABCDEF123456A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1234567890ABCDEF123456D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 		A1234567890ABCDEF123455A /* */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234565 /* HabitPet */,
+				A1234567890ABCDEF1234565 /* Habit-Royale */,
 				A1234567890ABCDEF1234564 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,21 +68,21 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 		A1234567890ABCDEF1234564 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234563 /* HabitPet.app */,
+				A1234567890ABCDEF1234563 /* Habit-Royale.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A1234567890ABCDEF1234565 /* HabitPet */ = {
+		A1234567890ABCDEF1234565 /* Habit-Royale */ = {
 			isa = PBXGroup;
 			children = (
-				A1234567890ABCDEF1234566 /* HabitPetApp.swift */,
+				A1234567890ABCDEF1234566 /* Habit-RoyaleApp.swift */,
 				A1234567890ABCDEF1234568 /* ContentView.swift */,
 				A1234567890ABCDEF123456A /* Assets.xcassets */,
 				A1234567890ABCDEF123456E /* GoogleService-Info.plist */,
 				A1234567890ABCDEF123456C /* Preview Content */,
 			);
-			path = HabitPet;
+			path = Habit-Royale;
 			sourceTree = "<group>";
 		};
 		A1234567890ABCDEF123456C /* Preview Content */ = {
@@ -96,9 +96,9 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1234567890ABCDEF1234562 /* HabitPet */ = {
+		A1234567890ABCDEF1234562 /* Habit-Royale */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1234567890ABCDEF1234571 /* Build configuration list for PBXNativeTarget "HabitPet" */;
+			buildConfigurationList = A1234567890ABCDEF1234571 /* Build configuration list for PBXNativeTarget "Habit-Royale" */;
 			buildPhases = (
 				A1234567890ABCDEF123455F /* Sources */,
 				A1234567890ABCDEF1234560 /* Frameworks */,
@@ -108,11 +108,11 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 			);
 			dependencies = (
 			);
-			name = HabitPet;
+			name = Habit-Royale;
 			packageProductDependencies = (
 			);
-			productName = HabitPet;
-			productReference = A1234567890ABCDEF1234563 /* HabitPet.app */;
+			productName = Habit-Royale;
+			productReference = A1234567890ABCDEF1234563 /* Habit-Royale.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +130,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 					};
 				};
 			};
-			buildConfigurationList = A1234567890ABCDEF123455E /* Build configuration list for PBXProject "HabitPet" */;
+			buildConfigurationList = A1234567890ABCDEF123455E /* Build configuration list for PBXProject "Habit-Royale" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = de;
 			hasScannedForEncodings = 0;
@@ -145,7 +145,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1234567890ABCDEF1234562 /* HabitPet */,
+				A1234567890ABCDEF1234562 /* Habit-Royale */,
 			);
 		};
 /* End PBXProject section */
@@ -169,7 +169,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 			buildActionMask = 2147483647;
 			files = (
 				A1234567890ABCDEF1234569 /* ContentView.swift in Sources */,
-				A1234567890ABCDEF1234567 /* HabitPetApp.swift in Sources */,
+				A1234567890ABCDEF1234567 /* Habit-RoyaleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,11 +302,11 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HabitPet/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Habit-Royale/Preview Content\"";
 				DEVELOPMENT_TEAM = YOUR_TEAM_ID;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HabitPet/Resources/Info.plist;
+				INFOPLIST_FILE = Habit-Royale/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -333,11 +333,11 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HabitPet/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Habit-Royale/Preview Content\"";
 				DEVELOPMENT_TEAM = YOUR_TEAM_ID;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HabitPet/Resources/Info.plist;
+				INFOPLIST_FILE = Habit-Royale/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -360,7 +360,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1234567890ABCDEF123455E /* Build configuration list for PBXProject "HabitPet" */ = {
+		A1234567890ABCDEF123455E /* Build configuration list for PBXProject "Habit-Royale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1234567890ABCDEF123456F /* Debug */,
@@ -369,7 +369,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1234567890ABCDEF1234571 /* Build configuration list for PBXNativeTarget "HabitPet" */ = {
+		A1234567890ABCDEF1234571 /* Build configuration list for PBXNativeTarget "Habit-Royale" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1234567890ABCDEF1234572 /* Debug */,
@@ -409,8 +409,8 @@ cat > "$PROJECT_DIR.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceCheck
 EOF
 
 # Create basic Swift files if they don't exist
-if [ ! -f "$PROJECT_DIR/HabitPet/App/HabitPetApp.swift" ]; then
-    cp "HabitPet/App/HabitPetApp.swift" "$PROJECT_DIR/ContentView.swift" 2>/dev/null || echo "SwiftUI files already exist"
+if [ ! -f "$PROJECT_DIR/Habit-Royale/App/Habit-RoyaleApp.swift" ]; then
+    cp "Habit-Royale/App/Habit-RoyaleApp.swift" "$PROJECT_DIR/ContentView.swift" 2>/dev/null || echo "SwiftUI files already exist"
 fi
 
 # Create Assets.xcassets
@@ -559,5 +559,5 @@ echo "   - Lottie for animations"
 echo "   - SDWebImageSwiftUI for image caching"
 echo "   - SwiftKeychainWrapper for secure storage"
 echo ""
-echo "🐾 Happy coding with HabitPet!"
+echo "🐾 Happy coding with Habit-Royale!"
 EOF
