@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "firebase-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/firebase/firebase-ios-sdk.git",
+      "state" : {
+        "revision" : "be49849e3327e8b8f6110346a5c8db0c6a50fce7",
+        "version" : "10.19.0"
+      }
+    },
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "4c6bec50a5a4e7332afc2d12bb4aa27d0b0c0691",
+        "version" : "4.3.4"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+      "state" : {
+        "revision" : "5aa947121e582c70464db6df2ca21cb819d72da0",
+        "version" : "2.2.4"
+      }
+    },
+    {
+      "identity" : "swiftkeychainwrapper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jrendel/SwiftKeychainWrapper.git",
+      "state" : {
+        "revision" : "185a3165346a03767101c9b85239f40d6ba4e1b8",
+        "version" : "4.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

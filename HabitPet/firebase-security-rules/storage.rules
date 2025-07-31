@@ -1,0 +1,42 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // User-specific files (pet images, profile pictures)
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && 
+                        request.auth.uid == userId &&
+                        isValidFileUpload();
+    }
+    
+    // Pet template assets (read-only for users)
+    match /petTemplates/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only admins
+    }
+    
+    // Battle question assets (read-only for users)
+    match /battleQuestions/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only admins
+    }
+    
+    // Achievement icons (read-only for users)
+    match /achievements/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only admins
+    }
+    
+    // App assets (read-only for users)
+    match /assets/{allPaths=**} {
+      allow read: if request.auth != null;
+      allow write: if false; // Only admins
+    }
+    
+    // Helper functions
+    function isValidFileUpload() {
+      return request.resource.size <= 5 * 1024 * 1024 && // 5MB max
+             request.resource.contentType.matches('image/.*'); // Images only
+    }
+  }
+}

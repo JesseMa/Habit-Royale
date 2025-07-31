@@ -1,0 +1,214 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isValidUser() {
+      return isAuthenticated() && 
+             request.auth.uid != null && 
+             request.auth.uid.size() > 0;
+    }
+    
+    function hasValidTimestamp() {
+      return request.time != null;
+    }
+    
+    // User data - only accessible by the user themselves
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+      
+      // User's pets - only the owner can access
+      match /pets/{petId} {
+        allow read, write: if isOwner(userId);
+        
+        // Validate pet data on write
+        allow create: if isOwner(userId) && 
+                     validatePetData() &&
+                     resource == null;
+        
+        allow update: if isOwner(userId) && 
+                     validatePetData() &&
+                     resource != null;
+      }
+      
+      // User's habit logs - only the owner can access
+      match /habitLogs/{logId} {
+        allow read, write: if isOwner(userId);
+        
+        // Validate habit log data
+        allow create: if isOwner(userId) && 
+                     validateHabitLogData() &&
+                     resource == null;
+      }
+      
+      // User's custom habits
+      match /customHabits/{habitId} {
+        allow read, write: if isOwner(userId);
+        
+        // Limit to max 10 custom habits per user
+        allow create: if isOwner(userId) && 
+                     validateCustomHabitData() &&
+                     resource == null;
+      }
+      
+      // User's goals
+      match /goals/{goalId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User's calendar data
+      match /calendar/{calendarId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User's progress data
+      match /progress/{progressId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User's streak data
+      match /streak/{streakId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User's battle statistics
+      match /battleStats/{statsId} {
+        allow read, write: if isOwner(userId);
+      }
+      
+      // User's achievements
+      match /achievements/{achievementId} {
+        allow read: if isOwner(userId);
+        // Only cloud functions can write achievements
+        allow write: if false;
+      }
+    }
+    
+    // Pet templates - read-only for authenticated users
+    match /petTemplates/{templateId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins via cloud functions
+    }
+    
+    // Battle questions - read-only for authenticated users
+    match /battleQuestions/{questionId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins via cloud functions
+    }
+    
+    // Global achievements - read-only for authenticated users
+    match /achievements/{achievementId} {
+      allow read: if isAuthenticated();
+      allow write: if false; // Only admins via cloud functions
+    }
+    
+    // Battles - participants can read/write their battles
+    match /battles/{battleId} {
+      allow read: if isAuthenticated() && 
+                 (request.auth.uid == resource.data.challengerId ||
+                  request.auth.uid == resource.data.opponentId);
+      
+      allow create: if isAuthenticated() && 
+                   validateBattleData() &&
+                   request.auth.uid == request.resource.data.challengerId;
+      
+      allow update: if isAuthenticated() && 
+                   validateBattleUpdate() &&
+                   (request.auth.uid == resource.data.challengerId ||
+                    request.auth.uid == resource.data.opponentId);
+    }
+    
+    // Leaderboard - read for all authenticated users
+    match /leaderboard/{entryId} {
+      allow read: if isAuthenticated();
+      // Only cloud functions can write leaderboard entries
+      allow write: if false;
+    }
+    
+    // Admin collections - only cloud functions
+    match /admin/{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Validation functions
+    function validatePetData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['templateId', 'name', 'level', 'experience', 'health', 'maxHealth', 'attack', 'defense', 'evolution', 'slotIndex', 'isActive', 'createdAt', 'lastFed']) &&
+             data.templateId is string &&
+             data.name is string && data.name.size() <= 20 &&
+             data.level is int && data.level >= 0 && data.level <= 100 &&
+             data.experience is int && data.experience >= 0 &&
+             data.health is int && data.health >= 0 && data.health <= data.maxHealth &&
+             data.maxHealth is int && data.maxHealth > 0 && data.maxHealth <= 1000 &&
+             data.attack is int && data.attack >= 0 && data.attack <= 1000 &&
+             data.defense is int && data.defense >= 0 && data.defense <= 1000 &&
+             data.evolution is int && data.evolution >= 0 && data.evolution <= 5 &&
+             data.slotIndex is int && data.slotIndex >= 0 && data.slotIndex < 3 &&
+             data.isActive is bool &&
+             data.createdAt is timestamp &&
+             data.lastFed is timestamp;
+    }
+    
+    function validateHabitLogData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['habitId', 'habitType', 'date', 'percentage', 'createdAt']) &&
+             data.habitId is string &&
+             data.habitType in ['SLEEP', 'EXERCISE', 'SCREEN_TIME', 'CUSTOM'] &&
+             data.date is timestamp &&
+             data.percentage is number && data.percentage >= 0 && data.percentage <= 100 &&
+             data.createdAt is timestamp &&
+             // Date must be within reasonable range (not future, not too old)
+             data.date <= request.time &&
+             data.date >= request.time - duration.value(7, 'd');
+    }
+    
+    function validateCustomHabitData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['name', 'emoji', 'description', 'targetType', 'targetValue', 'targetUnit', 'effect', 'intensity', 'isActive', 'createdAt']) &&
+             data.name is string && data.name.size() <= 30 &&
+             data.emoji is string && data.emoji.size() <= 5 &&
+             data.description is string && data.description.size() <= 100 &&
+             data.targetType in ['NUMERIC', 'YESNO'] &&
+             data.targetValue is number && data.targetValue >= 0 &&
+             data.targetUnit is string && data.targetUnit.size() <= 20 &&
+             data.effect in ['ATTACK', 'DEFENSE', 'HEALTH', 'EXPERIENCE'] &&
+             data.intensity in ['LIGHT', 'MEDIUM', 'STRONG'] &&
+             data.isActive is bool &&
+             data.createdAt is timestamp;
+    }
+    
+    function validateBattleData() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['challengerId', 'opponentId', 'questions', 'status', 'createdAt', 'expiresAt']) &&
+             data.challengerId is string &&
+             data.opponentId is string &&
+             data.challengerId != data.opponentId &&
+             data.questions is list && data.questions.size() == 3 &&
+             data.status == 'PENDING' &&
+             data.createdAt is timestamp &&
+             data.expiresAt is timestamp &&
+             data.expiresAt > data.createdAt;
+    }
+    
+    function validateBattleUpdate() {
+      let data = request.resource.data;
+      let oldData = resource.data;
+      
+      // Can only update answers, status, and winner
+      return data.diff(oldData).affectedKeys().hasOnly(['challengerAnswers', 'opponentAnswers', 'status', 'winner']) &&
+             // Status transitions
+             (
+               (oldData.status == 'PENDING' && data.status in ['ACTIVE', 'EXPIRED']) ||
+               (oldData.status == 'ACTIVE' && data.status == 'COMPLETED')
+             );
+    }
+  }
+}
