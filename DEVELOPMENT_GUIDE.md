@@ -19,9 +19,9 @@ open Habit-Royale.xcodeproj
 
 #### Firebase-Projekt erstellen
 1. [Firebase Console](https://console.firebase.google.com/) besuchen
-2. Neues Projekt erstellen: `habitpet-ios`
+2. Neues Projekt erstellen: `habit-royale-ios`
 3. iOS-App hinzufügen:
-   - Bundle ID: `com.yourcompany.habitpet` (anpassen nach Bedarf)
+   - Bundle ID: `com.yourcompany.habit-royale` (anpassen nach Bedarf)
    - App-Name: `Habit-Royale`
 
 #### Firebase-Services aktivieren

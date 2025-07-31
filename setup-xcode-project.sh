@@ -9,7 +9,7 @@ echo "🐾 Setting up Habit-Royale iOS Project..."
 
 # Variables
 PROJECT_NAME="Habit-Royale"
-BUNDLE_ID="com.yourcompany.habitpet"
+BUNDLE_ID="com.yourcompany.habit-royale"
 PROJECT_DIR="Habit-Royale"
 TEAM_ID="YOUR_TEAM_ID"
 
@@ -318,7 +318,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.habitpet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.habit-royale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -349,7 +349,7 @@ cat > "$PROJECT_DIR.xcodeproj/project.pbxproj" << 'EOF'
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.habitpet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.habit-royale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

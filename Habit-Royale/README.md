@@ -64,7 +64,7 @@ Habit-Royale/
 
 2. **Firebase konfigurieren**
    - Firebase-Projekt erstellen
-   - iOS-App hinzufügen mit Bundle ID: `com.yourcompany.habitpet`
+   - iOS-App hinzufügen mit Bundle ID: `com.yourcompany.habit-royale`
    - `GoogleService-Info.plist` herunterladen und in `/Habit-Royale/Resources/` platzieren
    - Firebase-Features aktivieren: Authentication, Firestore, Storage, Functions
 
